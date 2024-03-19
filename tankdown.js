@@ -1,0 +1,27 @@
+// Bebis.js TankDown compiler
+let input = document.getElementById("input")
+let output = document.getElementById("output")
+let preview = document.getElementById("preview")
+function TankDown(input)
+{
+let i = input
+i=i.replace(/;#(\.\[(.*)\])? (.*)/g, "<h1 class=\"$2\">$3</h1>")
+i=i.replace(/;##(\.\[(.*)\])? (.*)/g, "<h2 class=\"$2\">$3</h2>")
+i=i.replace(/;###(\.\[(.*)\])? (.*)/g, "<h3 class=\"$2\">$3</h3>")
+i=i.replace(/;####(\.\[(.*)\])? (.*)/g, "<h4 class=\"$2\">$3</h4>")
+i=i.replace(/;%(\d+)(\.\[(.*)\])? (.*)/g, "<div class=\"center-image\"><img class=\"h$1 $3\" src=\"$4\"/></div>")
+i=i.replace(/;(\.\[(.*)\])? (.*)/g, "<p class=\"$2\">$3</p>")
+i=i.replace(/;\*\*(.*)/g, "</ul>")
+i=i.replace(/;\*(\.\[(.*)\])?(.*)/g, "<ul class=\"$2\">")
+i=i.replace(/;- (.*)/g, "<li>$1</li>")
+i=i.replace(/s{ ?(.*) ?}(\.\[(.*)\])?/g, "<span class=\"$3\">$1</span>")
+return i
+}
+function Update()
+{
+let td = TankDown(input.value)
+output.innerText = td
+preview.innerHTML = td
+}
+Update()
+input.addEventListener("input", () => Update())

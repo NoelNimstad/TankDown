@@ -1,0 +1,14 @@
+.red 
+{
+    color: red;
+}
+
+#output 
+{
+    border: 1px solid blue;
+}
+
+#preview 
+{
+    border: 1px solid red;
+}
