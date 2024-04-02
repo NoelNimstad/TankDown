@@ -10,11 +10,13 @@ i=i.replace(/;##(\.\[(.*)\])? (.*)/g, "<h2 class=\"$2\">$3</h2>")
 i=i.replace(/;###(\.\[(.*)\])? (.*)/g, "<h3 class=\"$2\">$3</h3>")
 i=i.replace(/;####(\.\[(.*)\])? (.*)/g, "<h4 class=\"$2\">$3</h4>")
 i=i.replace(/;%(\d+)(\.\[(.*)\])? (.*)/g, "<div class=\"center-image\"><img class=\"h$1 $3\" src=\"$4\"/></div>")
+i=i.replace(/;%(\d+)%(\d+)(\.\[(.*)\])? (.*)/g, "<iframe width=\"$1\" height=\"$2\" src=\"$5\" class=\"$4\"></iframe>")
 i=i.replace(/;(\.\[(.*)\])? (.*)/g, "<p class=\"$2\">$3</p>")
 i=i.replace(/;\*\*(.*)/g, "</ul>")
 i=i.replace(/;\*(\.\[(.*)\])?(.*)/g, "<ul class=\"$2\">")
 i=i.replace(/;- (.*)/g, "<li>$1</li>")
 i=i.replace(/s{ ?(.*) ?}(\.\[(.*)\])?/g, "<span class=\"$3\">$1</span>")
+i=i.replace(/\[(.*)\]\((.*)\)(\.\[(.*)\])?/g, "<a class=\"$4\" href=\"$2\">$1</a>")
 return i
 }
 function Update()
