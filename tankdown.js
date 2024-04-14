@@ -13,10 +13,12 @@ i=i.replace(/;%(\d+)(\.\[(.*)\])? (.*)/g, "<div class=\"center-image\"><img clas
 i=i.replace(/;%(\d+)%(\d+)(\.\[(.*)\])? (.*)/g, "<iframe width=\"$1\" height=\"$2\" src=\"$5\" class=\"$4\"></iframe>")
 i=i.replace(/;(\.\[(.*)\])? (.*)/g, "<p class=\"$2\">$3</p>")
 i=i.replace(/;\*\*(.*)/g, "</ul>")
-i=i.replace(/;\*(\.\[(.*)\])?(.*)/g, "<ul class=\"$2\">")
+i=i.replace(/;\*(\.\[(.*)\])?(.*)/g, "<ul class=\"n $2\">")
 i=i.replace(/;- (.*)/g, "<li>$1</li>")
 i=i.replace(/s{ ?(.*?) ?}(\.\[(.*?)\])?/g, "<span class=\"$3\">$1</span>")
 i=i.replace(/\[(.*)\]\((.*)\)(\.\[(.*)\])?/g, "<a class=\"$4\" href=\"$2\">$1</a>")
+i=i.replace((?<!\\)\*\*(.*)(?<!\\)\*\*, "<b>$1</b>")
+i=i.replace((?<!\\)\*(.*)(?<!\\)\*, "<i>$1</i>")
 i=i.replace(/---/g, "<hr>")
 return i
 }
